@@ -1,14 +1,21 @@
-package pojobeans;
+package annotationbasedconfiguration;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import pojobeans.Account;
+import pojobeans.AccountRepository;
+import pojobeans.AccountService;
 
 /**
  * Created by Minh Tri on 06/01/17.
  */
-public class AccountServiceImpl implements AccountService {
+
+@Service("accountService")
+public class AccountService2Impl implements AccountService {
+    //AccountRepository is a dependency of AccountServiceImpl
+    @Autowired
     private AccountRepository accountRepository;
 
-    public void setAccountRepository(AccountRepository accountRepository) {
-        this.accountRepository = accountRepository;
-    }
 
     public void transferMoney(long fromAccountId, long toAccountId, double amount) {
         Account sourceAccount = accountRepository.find(fromAccountId);

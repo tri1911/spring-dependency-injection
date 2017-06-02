@@ -1,4 +1,8 @@
-package pojobeans;
+package annotationbasedconfiguration;
+
+import org.springframework.stereotype.Repository;
+import pojobeans.Account;
+import pojobeans.AccountRepository;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +10,8 @@ import java.util.Map;
 /**
  * Created by Minh Tri on 06/01/17.
  */
-public class AccountRepositoryImpl implements AccountRepository {
+@Repository
+public class AccountRepository2Impl implements AccountRepository {
     private Map<Long, Account> accountsMap = new HashMap<Long, Account>();
 
     {
